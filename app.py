@@ -35,6 +35,21 @@ def records():
         return jsonify(keys)
 
 
+@app.route('/keys', methods=['GET'])
+def keys():
+    filename = "EphKeys_"
+    numberOfKeys = request.args.get('keys')
+    keyfile = filename + numberOfKeys + ".json"
+    with open(keyfile, 'r') as f:
+        data = f.read()
+        records = json.loads(data)
+        keys = list()
+        for record in records:
+            keys.append(record["PublicEphkey"])
+        return jsonify(keys)
+
+
+
 
 
 if __name__ == "__main__":
