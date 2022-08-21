@@ -7,7 +7,7 @@ api = Api(app)
 
 @app.route('/', methods=['GET'])
 def query_records():
-    with open('EphKeys_1024.json', 'r') as f:
+    with open('EphKeys_64.json', 'r') as f:
         ID = request.args.get('ID')
         data = f.read()
         records = json.loads(data)
