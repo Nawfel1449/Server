@@ -10,7 +10,7 @@ url = "https://pfe-art-blockchain.herokuapp.com/list?ID="
 
 
 
-f = open('EphKeys_1024.json', 'r') 
+f = open('EphKeys_512.json', 'r') 
 data = f.read()
 records = json.loads(data)
 '''
@@ -34,7 +34,7 @@ for record in records:
     IDs += record['ID']
     IDs += ','
 
-print(url+IDs)
+#print(url+IDs)
 
 requests.get(url+IDs).json()
 end = time.time()
