@@ -50,6 +50,16 @@ def keys():
 
 
 
+@app.route('/tree', methods=['GET'])
+def Trees():
+    filename = "Tree_"
+    numberOfKeys = request.args.get('tree')
+    keyfile = filename + numberOfKeys + ".json"
+    with open(keyfile, 'r') as f:
+        data = f.read()
+        records = json.loads(data)
+        return jsonify(records)
+
 
 
 if __name__ == "__main__":
