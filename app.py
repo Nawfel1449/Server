@@ -4,6 +4,8 @@ from flask_sqlalchemy import SQLAlchemy
 import json
 app = Flask(__name__)
 api = Api(app)
+from ART import *
+
 
 @app.route('/', methods=['GET'])
 def query_records():
@@ -61,6 +63,25 @@ def Trees():
         return jsonify(records)
 
 
+@app.route('/SetTree',methods=['GET'])
+def uploadTree():
+    Tree   = request.args.get('tree')
+    number = Tree.split(',')
+    file = "tree_"
+    print(file+str(len(number))+".json")
+    DataToJson(number,file+str(len(number))+".json")
+    return Tree
+
+'''
+@app.route('/SetTreeSetup',methods=['GET'])
+def uploadsetup():
+    setup   = request.args.get('tree')
+
+    file = "setup_"
+    print(file+str(len(number))+".json")
+    DataToJson(setup,file+str(len(number))+".json")
+    return Tree
+'''
 
 if __name__ == "__main__":
     app.run(debug=True)
