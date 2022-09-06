@@ -29,7 +29,7 @@ for i in range(1,11) :
     print("*"*40)
     print("number of keys : ", pow(2, i))
     start = time.time() 
-    keyss = requests.get(url5+str(pow(2, i))).json()
+    keyss = requests.get(url4+str(pow(2, i))).json()
     end = time.time()
     print("took", end - start)
 
